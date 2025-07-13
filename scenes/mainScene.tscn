@@ -1,22 +1,44 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsjp3pbbtffc7"]
+[gd_scene load_steps=14 format=3 uid="uid://dsjp3pbbtffc7"]
 
 [ext_resource type="Script" path="res://scripts/cameraCtrl.gd" id="1_nyfnt"]
 [ext_resource type="ArrayMesh" uid="uid://0xlqglcatpf3" path="res://sprites/tree1.obj" id="3_1jjy8"]
 [ext_resource type="Script" path="res://scripts/uiCtrl.gd" id="3_tanpx"]
 [ext_resource type="ArrayMesh" uid="uid://uvi2wniqtivg" path="res://sprites/tree2.obj" id="4_47oc3"]
 [ext_resource type="Texture2D" uid="uid://cq4hj5ykneylf" path="res://sprites/tree.tres" id="4_q3hek"]
+[ext_resource type="Texture2D" uid="uid://c0h2orb2vviaq" path="res://sprites/eyes.tres" id="5_odm74"]
 [ext_resource type="Texture2D" uid="uid://710td7yi7t26" path="res://sprites/up.tres" id="6_ewd1p"]
 [ext_resource type="Texture2D" uid="uid://bpbabr25l45hf" path="res://sprites/left.tres" id="6_g7vmh"]
 [ext_resource type="Texture2D" uid="uid://82m5sdnd0bc6" path="res://sprites/right.tres" id="7_jw6sp"]
+[ext_resource type="Shader" path="res://misc/shader.gdshader" id="9_mevuo"]
+[ext_resource type="Texture2D" uid="uid://d4egrxuth1a2a" path="res://icon.svg" id="10_xctc4"]
 
 [sub_resource type="Environment" id="Environment_vum1s"]
 background_mode = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qs83f"]
+shader = ExtResource("9_mevuo")
+shader_parameter/output_tint = Vector3(1.285, 1.09, 1)
+shader_parameter/screen_size = Vector2(320, 180)
+shader_parameter/show_curvature = false
+shader_parameter/curvature_x_amount = 6.0
+shader_parameter/curvature_y_amount = 4.0
+shader_parameter/corner_color = Vector4(0, 0, 0, 1)
+shader_parameter/show_vignette = true
+shader_parameter/vignette_opacity = 0.2
+shader_parameter/show_horizontal_scan_lines = false
+shader_parameter/horizontal_scan_lines_amount = 180.0
+shader_parameter/horizontal_scan_lines_opacity = 1.0
+shader_parameter/show_vertical_scan_lines = false
+shader_parameter/vertical_scan_lines_amount = 0.0
+shader_parameter/vertical_scan_lines_opacity = 0.0
+shader_parameter/boost = 1.35
+shader_parameter/aberration_amount = 0.22
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 environment = SubResource("Environment_vum1s")
-far = 3.59
+far = 4.44
 script = ExtResource("1_nyfnt")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
@@ -41,6 +63,10 @@ mesh = ExtResource("4_47oc3")
 transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, 0, 0, 0)
 visible = false
 texture = ExtResource("4_q3hek")
+
+[node name="Sprite3D2" type="Sprite3D" parent="World/N"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, 1.5876, 1.34987, -1.62542)
+texture = ExtResource("5_odm74")
 
 [node name="N2" type="Node3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
@@ -93,6 +119,10 @@ skeleton = NodePath("../../../UI")
 transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 1.17527, -1.18603, 0.0540215)
 mesh = ExtResource("4_47oc3")
 
+[node name="Sprite3D2" type="Sprite3D" parent="World/S"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, -0.405966, -0.729919, -1.62542)
+texture = ExtResource("5_odm74")
+
 [node name="S2" type="Node3D" parent="World"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 4)
 
@@ -143,6 +173,10 @@ skeleton = NodePath("../../../UI")
 [node name="Tree2" type="MeshInstance3D" parent="World/E"]
 transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 1.17527, -1.18603, 0.0540215)
 mesh = ExtResource("4_47oc3")
+
+[node name="Sprite3D2" type="Sprite3D" parent="World/E"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, -2.17363, -0.112155, -1.62542)
+texture = ExtResource("5_odm74")
 
 [node name="E2" type="Node3D" parent="World"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, 0)
@@ -263,6 +297,16 @@ offset_bottom = 630.0
 texture = ExtResource("6_ewd1p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+material = SubResource("ShaderMaterial_qs83f")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_xctc4")
 
 [node name="Label" type="RichTextLabel" parent="UI"]
 layout_mode = 1
