@@ -1,0 +1,280 @@
+[gd_scene load_steps=10 format=3 uid="uid://dsjp3pbbtffc7"]
+
+[ext_resource type="Script" path="res://scripts/cameraCtrl.gd" id="1_nyfnt"]
+[ext_resource type="ArrayMesh" uid="uid://0xlqglcatpf3" path="res://sprites/tree1.obj" id="3_1jjy8"]
+[ext_resource type="Script" path="res://scripts/uiCtrl.gd" id="3_tanpx"]
+[ext_resource type="ArrayMesh" uid="uid://uvi2wniqtivg" path="res://sprites/tree2.obj" id="4_47oc3"]
+[ext_resource type="Texture2D" uid="uid://cq4hj5ykneylf" path="res://sprites/tree.tres" id="4_q3hek"]
+[ext_resource type="Texture2D" uid="uid://710td7yi7t26" path="res://sprites/up.tres" id="6_ewd1p"]
+[ext_resource type="Texture2D" uid="uid://bpbabr25l45hf" path="res://sprites/left.tres" id="6_g7vmh"]
+[ext_resource type="Texture2D" uid="uid://82m5sdnd0bc6" path="res://sprites/right.tres" id="7_jw6sp"]
+
+[sub_resource type="Environment" id="Environment_vum1s"]
+background_mode = 1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+environment = SubResource("Environment_vum1s")
+far = 3.59
+script = ExtResource("1_nyfnt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
+light_color = Color(0.806339, 0.56723, 0, 1)
+light_energy = 0.329
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="N" type="Node3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Tree1" type="MeshInstance3D" parent="World/N"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.816582, -1.07695, 0)
+mesh = ExtResource("3_1jjy8")
+skeleton = NodePath("../../../UI")
+
+[node name="Tree2" type="MeshInstance3D" parent="World/N"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 1.17527, -1.18603, 0.0540215)
+mesh = ExtResource("4_47oc3")
+
+[node name="Sprite3D" type="Sprite3D" parent="World/N"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, 0, 0, 0)
+visible = false
+texture = ExtResource("4_q3hek")
+
+[node name="N2" type="Node3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="Sprite3D" type="Sprite3D" parent="World/N2"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, 0, 0, 0)
+visible = false
+texture = ExtResource("4_q3hek")
+
+[node name="Tree1" type="MeshInstance3D" parent="World/N2"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.816582, -1.07695, 0)
+mesh = ExtResource("3_1jjy8")
+skeleton = NodePath("../../../UI")
+
+[node name="Tree2" type="MeshInstance3D" parent="World/N2"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 1.17527, -1.18603, 0.0540215)
+mesh = ExtResource("4_47oc3")
+
+[node name="N3" type="Node3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="Sprite3D" type="Sprite3D" parent="World/N3"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, 0, 0, 0)
+visible = false
+texture = ExtResource("4_q3hek")
+
+[node name="Tree1" type="MeshInstance3D" parent="World/N3"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.816582, -1.07695, 0)
+mesh = ExtResource("3_1jjy8")
+skeleton = NodePath("../../../UI")
+
+[node name="Tree2" type="MeshInstance3D" parent="World/N3"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 1.17527, -1.18603, 0.0540215)
+mesh = ExtResource("4_47oc3")
+
+[node name="S" type="Node3D" parent="World"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 2)
+
+[node name="Sprite3D" type="Sprite3D" parent="World/S"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, 0, 0, 0)
+visible = false
+texture = ExtResource("4_q3hek")
+
+[node name="Tree1" type="MeshInstance3D" parent="World/S"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.816582, -1.07695, 0)
+mesh = ExtResource("3_1jjy8")
+skeleton = NodePath("../../../UI")
+
+[node name="Tree2" type="MeshInstance3D" parent="World/S"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 1.17527, -1.18603, 0.0540215)
+mesh = ExtResource("4_47oc3")
+
+[node name="S2" type="Node3D" parent="World"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 4)
+
+[node name="Sprite3D" type="Sprite3D" parent="World/S2"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, 0, 0, 0)
+visible = false
+texture = ExtResource("4_q3hek")
+
+[node name="Tree1" type="MeshInstance3D" parent="World/S2"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.816582, -1.07695, 0)
+mesh = ExtResource("3_1jjy8")
+skeleton = NodePath("../../../UI")
+
+[node name="Tree2" type="MeshInstance3D" parent="World/S2"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 1.17527, -1.18603, 0.0540215)
+mesh = ExtResource("4_47oc3")
+
+[node name="S3" type="Node3D" parent="World"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 6)
+
+[node name="Sprite3D" type="Sprite3D" parent="World/S3"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, 0, 0, 0)
+visible = false
+texture = ExtResource("4_q3hek")
+
+[node name="Tree1" type="MeshInstance3D" parent="World/S3"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.816582, -1.07695, 0)
+mesh = ExtResource("3_1jjy8")
+skeleton = NodePath("../../../UI")
+
+[node name="Tree2" type="MeshInstance3D" parent="World/S3"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 1.17527, -1.18603, 0.0540215)
+mesh = ExtResource("4_47oc3")
+
+[node name="E" type="Node3D" parent="World"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="World/E"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, 0, 0, 0)
+visible = false
+texture = ExtResource("4_q3hek")
+
+[node name="Tree1" type="MeshInstance3D" parent="World/E"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.816582, -1.07695, 0)
+mesh = ExtResource("3_1jjy8")
+skeleton = NodePath("../../../UI")
+
+[node name="Tree2" type="MeshInstance3D" parent="World/E"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 1.17527, -1.18603, 0.0540215)
+mesh = ExtResource("4_47oc3")
+
+[node name="E2" type="Node3D" parent="World"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="World/E2"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, 0, 0, 0)
+visible = false
+texture = ExtResource("4_q3hek")
+
+[node name="Tree1" type="MeshInstance3D" parent="World/E2"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.816582, -1.07695, 0)
+mesh = ExtResource("3_1jjy8")
+skeleton = NodePath("../../../UI")
+
+[node name="Tree2" type="MeshInstance3D" parent="World/E2"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 1.17527, -1.18603, 0.0540215)
+mesh = ExtResource("4_47oc3")
+
+[node name="E3" type="Node3D" parent="World"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="World/E3"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, 0, 0, 0)
+visible = false
+texture = ExtResource("4_q3hek")
+
+[node name="Tree1" type="MeshInstance3D" parent="World/E3"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.816582, -1.07695, 0)
+mesh = ExtResource("3_1jjy8")
+skeleton = NodePath("../../../UI")
+
+[node name="Tree2" type="MeshInstance3D" parent="World/E3"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 1.17527, -1.18603, 0.0540215)
+mesh = ExtResource("4_47oc3")
+
+[node name="W" type="Node3D" parent="World"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="World/W"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, 0, 0, 0)
+visible = false
+texture = ExtResource("4_q3hek")
+
+[node name="Tree1" type="MeshInstance3D" parent="World/W"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.816582, -1.07695, 0)
+mesh = ExtResource("3_1jjy8")
+skeleton = NodePath("../../../UI")
+
+[node name="Tree2" type="MeshInstance3D" parent="World/W"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 1.17527, -1.18603, 0.0540215)
+mesh = ExtResource("4_47oc3")
+
+[node name="W2" type="Node3D" parent="World"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="World/W2"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, 0, 0, 0)
+visible = false
+texture = ExtResource("4_q3hek")
+
+[node name="Tree1" type="MeshInstance3D" parent="World/W2"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.816582, -1.07695, 0)
+mesh = ExtResource("3_1jjy8")
+skeleton = NodePath("../../../UI")
+
+[node name="Tree2" type="MeshInstance3D" parent="World/W2"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 1.17527, -1.18603, 0.0540215)
+mesh = ExtResource("4_47oc3")
+
+[node name="W3" type="Node3D" parent="World"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="World/W3"]
+transform = Transform3D(-1.37691e-08, 0.315, 0, -0.315, -1.37691e-08, 0, 0, 0, 0.315, 0, 0, 0)
+visible = false
+texture = ExtResource("4_q3hek")
+
+[node name="Tree1" type="MeshInstance3D" parent="World/W3"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, -0.816582, -1.07695, 0)
+mesh = ExtResource("3_1jjy8")
+skeleton = NodePath("../../../UI")
+
+[node name="Tree2" type="MeshInstance3D" parent="World/W3"]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 1.17527, -1.18603, 0.0540215)
+mesh = ExtResource("4_47oc3")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_tanpx")
+
+[node name="CtrlL" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 637.0
+offset_top = 629.0
+offset_right = 765.0
+offset_bottom = 757.0
+texture = ExtResource("6_g7vmh")
+
+[node name="CtrlR" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 631.0
+offset_right = 1020.0
+offset_bottom = 759.0
+texture = ExtResource("7_jw6sp")
+
+[node name="CtrlU" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 763.0
+offset_top = 502.0
+offset_right = 891.0
+offset_bottom = 630.0
+texture = ExtResource("6_ewd1p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
+
+[node name="Label" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 70.0
+offset_bottom = -501.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 0, 0.819608)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+bbcode_enabled = true
+text = "[center] THE OWLS ARE NOT WHAT THEY SEEM [/center] "

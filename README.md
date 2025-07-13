@@ -1,2 +1,2 @@
 # trijam330
-3h gamejam
+3h software
